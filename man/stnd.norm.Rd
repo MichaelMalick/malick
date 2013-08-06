@@ -1,0 +1,78 @@
+% Michael Malick
+% 12 May 2012
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEADER 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\name{stnd.norm}
+
+\alias{stnd.norm}
+
+\title{Standardizes a Vector to a N(0,1) Distribution}
+
+\description{
+    This function standardizes a vector by taking each element of the
+    vector and subtracting the mean and dividing by the standard
+    deciation of the vector.
+}
+
+\usage{
+    stnd.norm(x, na.rm = TRUE, tol = 0.001)
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BODY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\arguments{
+    \item{x}{
+	    numeric vector
+    }
+
+    \item{na.rm}{
+        logical, if TRUE NA's are removed for computing the mean and
+        standard deviation.
+    }
+
+    \item{tol}{
+        tolerance of similarity between elements in the vector, if
+        each element is within the tolerance of each other a vector
+        of zeros is returned
+    }
+
+}
+
+
+\value{Returns a vector the same length as x.}
+
+\details{ 
+    You can set a tolerance level, which is required if the values in
+    the vector to be standardized are equal. If all values in the
+    vector are within the 'tol' level of each other the standardized
+    values will be set to 0.
+}
+
+\author{Michael Malick}
+
+
+\seealso{
+    \code{\link{mean}},
+    \code{\link{sd}}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXAMPLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\examples{
+
+    x <- c(1, 2, 3, NA, 4, 5)
+    stnd.norm(x)
+
+    y <- rep(3.1, 10)
+    stnd.norm(y)
+
+}
+
+

@@ -1,0 +1,22 @@
+# Michael Malick
+# 12 May 2012
+
+# Export all names
+exportPattern(".")
+
+# Import all packages listed as Imports or Depends
+# import(
+#     MASS,
+#     lattice,
+#     RColorBrewer,
+#     grid,
+#     gridExtra,
+#     latticeExtra,
+#     maps,
+#     ncdf,
+#     reshape2,
+#     plyr
+# )
+
+# importFrom(lattice, levelplot)
+#

@@ -1,0 +1,12 @@
+Package: malick
+Type: Package
+Title: Personal R Functions
+Version: 1.0
+Date: 2013-07-10
+Author: Michael Malick
+Maintainer: Michael Malick <malickmj@gmail.com>
+Depends: R (>= 2.10) 
+Suggests: lattice, MASS, maps, ncdf, reshape2, plyr
+Description: This package contains a number of personal functions
+    that are not included in base R that I routinely use.  
+License: GPL (>= 2)
