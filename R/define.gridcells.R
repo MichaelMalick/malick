@@ -1,27 +1,25 @@
 define.gridcells <- function(
-    sub.cells = data.frame(row = 1, column = 1),
-    locations = data.frame(long = 1, lat = 1),
+    sub.cells = NULL,
     cell.size = 2,
-    lat.min = 46,
-    lat.max = 68,
-    lon.min = -168,
-    lon.max = -122,
+    lat.min = -90,
+    lat.max = 90,
+    lon.min = -180,
+    lon.max = 180,
     plot = TRUE,
-    all.cells = FALSE) {
+    locations = NULL) {
 
     # sub.cells = dataframe defining which grid cells to subset
-    # locations = optional coordinates to plot on map
+    #             if NULL all cells in region are returned
     # cell.size = cell size in degrees
     # lat.min = min lat of study region
     # lat.max = max lat of study region
     # lon.min = min lon of study region
     # lon.max = max lon of study region
     # plot = should a plot of the grid cells be printed
-    # all.cells = if TRUE all the grid cells within the region bounds
-    #             are included; overrides sub.cells when TRUE
+    # locations = optional coordinates to plot on map
     #
     # Michael Malick
-    # 10 Jul 2013
+    # 07 Aug 2013
 
     require(lattice)
     require(maps)
@@ -32,7 +30,9 @@ define.gridcells <- function(
 
     # Find center of all 1x1 grid cells in study region
     y                <- seq(lat.min, lat.max, cell.size)
+    y                <- ifelse(y > 0, y - sz, y + sz)
     x                <- seq(lon.min, lon.max, cell.size)
+    x                <- ifelse(x > 0, x - sz, x + sz)
     center           <- expand.grid(x, rev(y))
     names(center)    <- c("lon", "lat")
     center$matrix.id <- 1:length(center[, 1])
@@ -57,7 +57,14 @@ define.gridcells <- function(
     mat.melt <- with(mat.melt, data.frame(matrix.id, row, column,
         lat, lon))
 
-    if(all.cells == TRUE) {
+
+    # Define max and min lat and lon
+    mat.melt$min.lat <- mat.melt$lat - sz
+    mat.melt$max.lat <- mat.melt$lat + sz
+    mat.melt$min.lon <- mat.melt$lon - sz
+    mat.melt$max.lon <- mat.melt$lon + sz
+
+    if(is.null(sub.cells) == TRUE) {
         sub.cells <- expand.grid(1:n.row, 1:n.col)
         names(sub.cells) <- c("row", "column")
     }
@@ -65,27 +72,24 @@ define.gridcells <- function(
     suppressMessages(use <- join(sub.cells, mat.melt))
 
 
-    # Define max and min lat and lon
-    use$min.lat <- use$lat - sz
-    use$max.lat <- use$lat + sz
-    use$min.lon <- use$lon - sz
-    use$max.lon <- use$lon + sz
-
-
     if(plot == TRUE) {
         
         # Create seq for grid lines
-        yy <- seq(lat.min - sz, lat.max + sz, cell.size)
-        xx <- seq(lon.min - sz, lon.max + sz, cell.size)
+        yy <- sort(unique(c(mat.melt$min.lat, mat.melt$max.lat)))
+        xx <- sort(unique(c(mat.melt$min.lon, mat.melt$max.lon)))
         
-        # Create padding for xlim and ylim
-        pad <- cell.size * 1.5
+        if(is.null(locations)) {
+            locations <- data.frame(long = 1, lat = 1)
+            loc.color <- "white"
+        } else
+            loc.color <- "#FF00FF"
+        
 
         p <- xyplot(lat ~ -long, data = locations, 
-            xlim = c(lon.min - pad, lon.max + pad),
-            ylim = c(lat.min - pad, lat.max + pad), 
+            xlim = c(lon.min - cell.size, lon.max),
+            ylim = c(lat.min, lat.max + cell.size), 
             main = "Study Region Grid",
-            pch = 20, cex = 1, col = "#FF00FF",
+            pch = 20, cex = 1, col = loc.color,
             xlab = expression(paste("Longitude (", degree, "W)")),
             ylab = expression(paste("Latitude (", degree, "N)")),
             panel = function(...) { 
@@ -104,15 +108,15 @@ define.gridcells <- function(
 
                 # Add subsetted center grid cell dots
                 panel.xyplot(x = use$lon, y = use$lat, 
-                    col = "black", pch = 20, cex = 0.9) 
+                    col = "black", pch = 20, cex = 0.7) 
                 # Add grid lines
                 panel.abline(v = xx)
                 panel.abline(h = yy)
 
                 # Add cell indices
-                panel.text(x = x, y = lat.max + cell.size, 
+                panel.text(x = x, y = lat.max + (cell.size / 2), 
                     cex = 0.5, labels = as.character(1:length(x)))
-                panel.text(y = y, x = lon.min - cell.size, 
+                panel.text(y = y, x = lon.min - (cell.size / 2), 
                     cex = 0.5, labels = as.character(length(y):1))
 
              }) 

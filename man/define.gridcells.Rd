@@ -1,5 +1,5 @@
 % Michael Malick
-% 08 Jul 2013
+% 07 Aug 2013
 
 
 
@@ -13,22 +13,22 @@
 
 \description{
     This function creates a grid over a defined study region and
-    gives the center of the gridcells. It can also subset these
-    gridcells according to predefined grid cell coordinates.
+    returns the coordinates for the center of the gridcells. It can
+    also subset these gridcells according to predefined grid cell
+    coordinates.
 }
 
 
 \usage{
     define.gridcells(
-        sub.cells = data.frame(row = 1, column = 1),
-        locations = data.frame(long = 1, lat = 1),
+        sub.cells = NULL,
         cell.size = 2,
-        lat.min = 46,
-        lat.max = 68,
-        lon.min = -168,
-        lon.max = -122,
+        lat.min = -90,
+        lat.max = 90,
+        lon.min = -180,
+        lon.max = 180,
         plot = TRUE,
-        all.cells = FALSE) 
+        locations = NULL)
 }
 
 
@@ -39,13 +39,11 @@
 \arguments{
 
     \item{sub.cells}{
-        optional dataframe giving the coordinates of the grid cells
+        optional dataframe giving the indices of the grid cells
         to subset within the study region. It's expected that that
-        the grid coordinates have 1,1 in the top lefthand corner.
+        the grid coordinates have 1,1 in the top lefthand corner. If
+        NULL all grid cells are used
     }
-    \item{locations}{
-        optional coordinates to plot on map.
-    } 
     \item{cell.size}{
        grid cell size in degrees 
     } 
@@ -64,17 +62,18 @@
     \item{plot}{
        logical, should a plot of the grid cells be created
     } 
-    \item{all.cells}{
-       logical, if true all the grid cells within the study region
-       bounds are included; overrides sub.cells when true
+    \item{locations}{
+        optional coordinates to plot on map
     } 
 }
 
 
 \value{
-    The output of the function is a dataframe specifying the lon and
-    lat of the center of the subsetted grid cells along with their
-    indices and unique id.
+    The output of the function is a dataframe that gives the unique
+    row and column identifiers for each grid cell, the unique grid
+    cell id for all grid cells (matrix.id) and the subsetted grid
+    cells (cell.id), the center coordinates of the grid cell (lat and
+    lon), and the max and min coordinates for each grid cell.
 
 }
 
@@ -83,13 +82,18 @@
     This functions takes as input the boundaries of the study region
     and the size of the desired grid cells in degrees. The function
     creates a grid of cells over the entire region giving each grid
-    cell a unique id (matrix.id). It also takes as input a dataframe 
-    that identifies the indices of the grid cells that
-    should be subsetted. The dataframe should identify the 
-    row and columns indices of the cells to use with the first index 
-    (1,1) being in the upper lefthand corner and filling by row moving
-    to the right. The last cell should be in the lower lefthand
-    corner.
+    cell a unique id (matrix.id). The function treats this grid like
+    a matrix with each cell having a unique column and row
+    identifier. The sub.cells argument takes as input a dataframe
+    that gives the row and column indices of specific grid cells to
+    subset. The first index (1,1) should be in the upper
+    lefthand corner and filling by row moving to the right. The last
+    cell should be in the lower righthand corner. If sub.cells is
+    supplied only data for the given cells are returned. If sub.cells
+    is NULL data for all cells in the region are returned. 
+
+    The function expects the study region to be defined within the
+    coordinates: Lat: -90:90 Lon: -180:180.
 
     Requires the reshape2 and plyr packages.
 }
@@ -105,7 +109,6 @@
 \examples{
 
 define.gridcells(plot = FALSE)
-define.gridcells(all.cells = TRUE, plot = TRUE)
 
 }
 
