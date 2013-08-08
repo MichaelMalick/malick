@@ -28,11 +28,21 @@ define.gridcells <- function(
 
     sz <- cell.size * 0.5
 
+    
     # Find center of all 1x1 grid cells in study region
-    y                <- seq(lat.min, lat.max, cell.size)
-    y                <- ifelse(y > 0, y - sz, y + sz)
-    x                <- seq(lon.min, lon.max, cell.size)
-    x                <- ifelse(x > 0, x - sz, x + sz)
+    y.seq <- seq(lat.min, lat.max, cell.size)
+    x.seq <- seq(lon.min, lon.max, cell.size)
+    n.lat <- length(y.seq) - 1
+    n.lon <- length(x.seq) - 1
+    y     <- rep(NA, n.lat)
+    x     <- rep(NA, n.lon)
+
+    for(i in 1:n.lat)
+        y[i] <- mean(c(y.seq[i], y.seq[i + 1]))
+        
+    for(i in 1:n.lon)
+        x[i] <- mean(c(x.seq[i], x.seq[i + 1]))
+
     center           <- expand.grid(x, rev(y))
     names(center)    <- c("lon", "lat")
     center$matrix.id <- 1:length(center[, 1])
