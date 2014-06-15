@@ -8,7 +8,7 @@ mm.par <- function(...) {
 
     fun.par <- list(
         fontsize          = list(text = 12),
-        panel.background = list(col   = "grey90"),
+        panel.background = list(col   = "white"),
         plot.polygon      = list(border = "transparent", 
                             col = "#0080ff"),
         # Bar colors set to same as lines and points
@@ -20,13 +20,13 @@ mm.par <- function(...) {
         plot.symbol       = list(pch  = 20),
         superpose.symbol  = list(pch  = 20),
         dot.symbol        = list(pch  = 20),
-        strip.background  = list(col  = c("grey80", "grey70")),
-        strip.shingle     = list(col  = c("grey80", "grey70")),
-        strip.border      = list(col  = "grey65"),
-        axis.line         = list(col  = "grey65"),
+        strip.background  = list(col  = c("grey90", "grey80")),
+        strip.shingle     = list(col  = c("grey90", "grey80")),
+        strip.border      = list(col  = "grey45"),
+        axis.line         = list(col  = "grey45"),
         axis.text         = list(col  = "grey30"),
-        reference.line    = list(col  = "white"),
-        dot.line          = list(col  = "white"),
+        reference.line    = list(col  = "grey85"),
+        dot.line          = list(col  = "grey85"),
         axis.components   = list(left = list(tck = 0.7),
                                  right = list(tck = 0.7),
                                  top = list(tck = 0.7),

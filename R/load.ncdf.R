@@ -1,17 +1,18 @@
-load.ncdf <- function(datafile, var) {
+load.ncdf <- function(datafile, var, lat.name = "lat", lon.name = "lon",
+    time.name = "time") {
     
     # datafile = netCDF file
     # var = variable name in netCDF file
     #
     # Michael Malick
-    # 10 Jul 2013
+    # 09 Jun 2014
 
     require(ncdf)
 
     dat.file <- open.ncdf(datafile)
-    datLat   <- get.var.ncdf(dat.file, varid = "lat")  
-    datLon   <- get.var.ncdf(dat.file, varid = "lon")  
-    datTime  <- get.var.ncdf(dat.file, varid = "time") 
+    datLat   <- get.var.ncdf(dat.file, varid = lat.name)  
+    datLon   <- get.var.ncdf(dat.file, varid = lon.name)  
+    datTime  <- get.var.ncdf(dat.file, varid = time.name) 
     dat      <- get.var.ncdf(dat.file, varid = var)    
     dim      <- dim(dat)    
     

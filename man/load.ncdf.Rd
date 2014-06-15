@@ -16,7 +16,7 @@
 }
 
 \usage{
-    load.ncdf(datafile, var)
+    load.ncdf(datafile, var, lat.name, lon.name, time.name)
 }
 
 
@@ -26,6 +26,9 @@
 \arguments{
     \item{datafile}{netCDF file to load}
     \item{var}{name of the variable in the netCDF file}
+    \item{lat.name}{name of the latitude variable in the netCDF file}
+    \item{lon.name}{name of the longitude variable in the netCDF file}
+    \item{time.name}{name of the time variable in the netCDF file}
         
 }
 
