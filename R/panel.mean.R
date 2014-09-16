@@ -1,16 +1,57 @@
+#' @title Add factor means to a lattice plot
+#' 
+#' @description
+#'     Panel function for lattice plots to add a mean bar onto an xyplot
+#'     that plots a numeric ~ factor, where the the mean represents the
+#'     mean of the factor.
+#'     
+#' @param x
+#'     x values
+#' @param y
+#'     y values
+#' @param fun
+#'     \code{mean} function is used for each panel
+#' @param horizontal
+#'     logical
+#' @param lwd
+#'     line width 
+#' @param lty
+#'     line type
+#' @param col
+#'     color
+#' @param col.line
+#'     line color
+#' @param type
+#'     points or line
+#' @param \dots
+#'     other plotting parameters
+#' 
+#' @return
+#'     Used as part of an \code{\link{xyplot}} call
+#' 
+#' @author Michael Malick
+#' 
+#' @export
+#' 
+#' @seealso
+#'     \code{\link{lattice}}
+#'     \code{\link{xyplot}}
+#'     \code{\link{panel.abline}}
+#' 
+#' @examples
+#'    require(lattice)
+#' 
+#'     xyplot(Sepal.Length ~ Species, data = iris,
+#'         panel = function(x, y, col, ...)		{
+#' 		panel.grid(h=4, v=0, col = "grey80", ...)
+#' 		panel.xyplot(x, y, col = "grey40", ...)
+#' 		panel.mean(x, y, type = "p", horizontal = F, col = 1, 
+#' 		pch = "-", cex = 10, ...) })
+#' 
 panel.mean <- function (x, y, fun = mean, horizontal = TRUE, 
     lwd = reference.line$lwd, 
     lty = reference.line$lty, col, col.line = reference.line$col, 
     type = "l", ...) {
-
-# Panel function for lattice plots to add a mean bar onto a plot
-# that plots a numeric ~ factor, where the the mean represents
-# the mean of the factor
-#
-# Michael Malick
-# 12 May 2012
-
-
 
     require(lattice)
 
@@ -38,23 +79,3 @@ panel.mean <- function (x, y, fun = mean, horizontal = TRUE,
             lwd = lwd, type = type, ...)
     }
 }
-
-
-
-#####################################################################
-# TESTING
-#####################################################################
-if(FALSE) {
-
-    require(lattice)
-
-    xyplot(Sepal.Length ~ Species, data = iris,
-        panel = function(x, y, col, ...)		{
-		panel.grid(h=4, v=0, col = "grey80", ...)
-		panel.xyplot(x, y, col = "grey40", ...)
-		panel.mean(x, y, type = "p", horizontal = F, col = 1, 
-		pch = "-", cex = 10, ...) })
-
-}
-
-

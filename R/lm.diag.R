@@ -1,27 +1,69 @@
+#' @title Linear model diagnostics
+#' 
+#' @description 
+#'     This function produces eight standard diagnostic plots used to
+#'     assess the assumptions of a linear regression. The plots analyze
+#'     the residuals of the linear model. See also 
+#'     \code{link{norm.diag}} for assessing the normality of the
+#'     residuals.
+#' 
+#' @param x
+#'     linear model object
+#' @param main.title
+#'     title for plotting device
+#' 
+#' @details
+#'     \itemize{
+#'         \item{Standardized and studentized residuals are calculated according
+#'             to the functions in the MASS library}
+#'         \item{Cooks distances give the influence of a point on all fitted values
+#'             (4/(n-p-1) = potentially influential)}
+#'     \item{Leverages give influence of a point on
+#'         the model fit. Leverages over 2p/n are considered influential.
+#'         ACF values +/- 2/sqrt(n) are condidered significant}}
+#' 
+#' @return 
+#'     Returns a plotting device with eight standard diagnostic plots for linear
+#'     models:
+#'     \itemize{
+#'         \item{histogram of the residuals}{ } 
+#'         \item{normal qq plot of residuals}{ } 
+#'         \item{residuals vs fitted values}{ } 
+#'         \item{standardized residuals vs fitted values}{ } 
+#'         \item{studentized residuals vs fitted values}{ } 
+#'         \item{autocorrelation function}{ } 
+#'         \item{cooks distance vs fitted}{ }
+#'         \item{leverages vs fitted}{ }}
+#' 
+#' @references
+#'     Kutner, M. H., C. J. Nachtsheim, J. Neter, and W. Li. 2005.
+#'     Applied linear statistical models, 5th edition.
+#'     McGraw-Hill/Irwin, New York.
+#' 
+#' @author Michael Malick
+#' 
+#' @export
+#' 
+#' @seealso
+#'     \code{\link{lm}}
+#'     \code{\link{cooks.distance}}
+#'     \code{\link{stdres}}
+#'     \code{\link{studres}}
+#'     \code{\link{norm.diag}}
+#'     \code{\link{influence}}
+#' 
+#' @examples
+#'     ## Create some data
+#'     x <- rnorm(100)
+#'     y <- 1:100
+#'      
+#'     ## Fit linear model
+#'     fitted <- lm(x ~ y)
+#' 
+#'     ## Run diagnostics
+#'     lm.diag(fitted)
+#' 
 lm.diag <- function(x, main.title = "Residual Diagnostic Plots") {
-
-# Linear model residual analysis and outlier detection
-#
-# Gives plots of: 
-#   histogram of residuals 
-#   qq plot of residuals 
-#   residuals vs. fitted 
-#   standardized residuals vs fitted 
-#   studentized residuals vs fitted 
-#   cooks distance vs fitted 
-#   leverages vs fitted
-#
-# Standardized and Studentized are calculated according to MASS
-#
-# Cooks distances give the influence of a point on all fitted values
-#   4/(n-p-1) = poetentially influential 
-#
-# Leverages give influence of a point on the model fit
-#   Leverages over 2p/n are considered influencial
-#
-# Michael Malick
-# 10 Jul 2013
-
     require(MASS)
     
     fit       <- x$fitted.values
@@ -97,24 +139,3 @@ lm.diag <- function(x, main.title = "Residual Diagnostic Plots") {
 
     mtext(main.title, line = 0.5, outer = TRUE, cex = 1.3)
 }
-
-
-
-#####################################################################
-# TESTING
-#####################################################################
-if(FALSE) {
-    ## Create some data
-    x <- rnorm (25)
-    y <- seq(1, 25, 1)
-     
-    ## Fit linear model
-    fit <- lm(x ~ y)
-
-    ## Run diagnostics
-    lm.diag(fit)
-} 
-
-
-
-

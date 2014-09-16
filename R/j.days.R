@@ -1,18 +1,33 @@
+#' @title Compute daily time intervals
+#' 
+#' @description 
+#'     Returns daily values of year, month, day of the month, week of
+#'     the year, and Julian days for the input year. This function
+#'     accounts for leap years.  February will have 29 days in leap
+#'     years.  
+#' 
+#' @param year
+#'     year for which to compute values
+#' 
+#' @return
+#'     Returns a dataframe that contains a record for each day of the
+#'     year, 365 for non-leap years and 366 for leap years. The
+#'     dataframe contains seven columns: year, jday, month, week, day,
+#'     day5, day8.
+#' 
+#'     For the weeks columns, the last week of the year contains an
+#'     extra day (2 days in leap years). For the day8 column the last
+#'     period only has 5 days.
+#' 
+#' @export
+#' 
+#' @author Michael Malick
+#' 
+#' @examples
+#'     j.days(1999)
+#' 
 j.days <- function(year) {
 
-# Returns daily values of years, months, day of the month,
-# week of the year and Julian days for the input year.
-# I also added indices for 5day and 8day periods.
-#
-# This function accounts for leap years.
-# February will have 29 days in Leap Years.
-#
-# The last week of the year has an extra day (2 in leap years)
-# For the 8day periods the last period only has 5 days
-#
-# Michael Malick
-# 15 Mar 2013
-    
     years  <- numeric()
     jdays  <- numeric()
     months <- numeric()
@@ -49,8 +64,3 @@ j.days <- function(year) {
     data.frame(year = years, jday = jdays, month = months, 
         week = weeks, day = days, day5 = five, day8 = eight)
 }
-
-
-
-
-

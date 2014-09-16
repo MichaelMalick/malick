@@ -1,29 +1,47 @@
+#' @title Error bars for a barplot
+#' 
+#' @description
+#'     Draws error bars on a barplot.
+#' 
+#' @param x
+#'     \code{barplot} object
+#' @param y
+#'     vector of bar heights
+#' @param ebl
+#'     vector of lower error bar limits
+#' @param ebu
+#'     vector of upper error bar limits
+#' @param length
+#'     length of the horizontal bars
+#' @param \dots
+#'     additional parameters controlling the error bar
+#' 
+#' @details
+#'     This function currently only works on barplots
+#' 
+#' @return
+#'     Returns a barplot with error bars
+#' 
+#' @author Michael Malick
+#' 
+#' @export
+#' 
+#' @seealso \code{link{barplot}}
+#' 
+#' @examples
+#'     ## Bar Heights
+#'     x <- c(10,8,13,7)
+#' 
+#'     ## Error Bars
+#'     up <- c(1,1,1,1)
+#'     lo <- c(1,1,1,1)
+#' 
+#'     ## Barplot
+#'     plt <- barplot(x, ylim = c(0, 15), las = 1)
+#'     error.bar(plt, x, up, lo)
+#' 
 error.bar <- function (x, y, ebl, ebu = ebl, length = 0.08, ...) {
-
-    # Function to draw error bars on a barplot
-    # x = barplot (have to name it)
-    # y = vector of bar heights
-    # Written By: Michael Malick
-    # Last Modified: 10.22.2007
-
     arrows(x, y + ebu, x, y - ebl, angle = 90, code = 3, 
     length = length, ...)
 }
-
-
-
-#####################################################################
-# TESTING
-#####################################################################
-if(FALSE) {
-
-    x <- c(10,8,13,7)
-    up <- c(1,1,1,1)
-    lo <- c(1,1,1,1)
-     
-    plt <- barplot(x, ylim = c(0, 15), las = 1)
-     
-    error.bar(plt, x, up, lo)
-}
-
 

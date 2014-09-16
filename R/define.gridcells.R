@@ -1,25 +1,75 @@
+#' @title Define gridcells within a study region
+#' 
+#' @description
+#'     This function creates a grid over a defined study region and
+#'     returns the coordinates for the center of the gridcells. It can
+#'     also subset these gridcells according to predefined grid cell
+#'     coordinates.
+#' 
+#' @param sub.cells
+#'     optional dataframe giving the indices of the grid cells to subset within the
+#'     study region. It's expected that that the grid coordinates have 1,1 in the
+#'     top lefthand corner. If NULL all grid cells are used
+#' @param cell.size
+#'     grid cell size in degrees 
+#' @param lat.min
+#'     minimum latitude of study region
+#' @param lat.max
+#'     maximum latitude of study region
+#' @param lon.min
+#'     minimum longitude of study region
+#' @param lon.max
+#'     maximum longitude of study region
+#' @param plot
+#'     logical, should a plot of the grid cells be created
+#' @param locations
+#'     optional coordinates to plot on map
+#'      
+#' @return
+#'     The output of the function is a dataframe that gives the unique
+#'     row and column identifiers for each grid cell, the unique grid
+#'     cell id for all grid cells (matrix.id) and the subsetted grid
+#'     cells (cell.id), the center coordinates of the grid cell (lat and
+#'     lon), and the max and min coordinates for each grid cell.
+#' 
+#' @details
+#'     This functions takes as input the boundaries of the study region
+#'     and the size of the desired grid cells in degrees. The function
+#'     creates a grid of cells over the entire region giving each grid
+#'     cell a unique id (matrix.id). The function treats this grid like
+#'     a matrix with each cell having a unique column and row
+#'     identifier. The sub.cells argument takes as input a dataframe
+#'     that gives the row and column indices of specific grid cells to
+#'     subset. The first index (1,1) should be in the upper
+#'     lefthand corner and filling by row moving to the right. The last
+#'     cell should be in the lower righthand corner. If sub.cells is
+#'     supplied only data for the given cells are returned. If sub.cells
+#'     is NULL data for all cells in the region are returned. 
+#' 
+#'     The function expects the study region to be defined within the
+#'     coordinates: Lat: -90:90 Lon: -180:180.
+#' 
+#'     Requires the reshape2 and plyr packages.
+#' 
+#' @author Michael Malick
+#' 
+#' @export
+#' 
+#' @examples
+#'     define.gridcells(plot = FALSE)
+#' 
+
+
 define.gridcells <- function(
     sub.cells = NULL,
     cell.size = 2,
-    lat.min = -90,
-    lat.max = 90,
-    lon.min = -180,
-    lon.max = 180,
-    plot = TRUE,
+    lat.min   = -90,
+    lat.max   = 90,
+    lon.min   = -180,
+    lon.max   = 180,
+    plot      = TRUE,
     locations = NULL) {
 
-    # sub.cells = dataframe defining which grid cells to subset
-    #             if NULL all cells in region are returned
-    # cell.size = cell size in degrees
-    # lat.min = min lat of study region
-    # lat.max = max lat of study region
-    # lon.min = min lon of study region
-    # lon.max = max lon of study region
-    # plot = should a plot of the grid cells be printed
-    # locations = optional coordinates to plot on map
-    #
-    # Michael Malick
-    # 07 Aug 2013
 
     require(lattice)
     require(maps)
@@ -27,7 +77,6 @@ define.gridcells <- function(
     require(plyr)
 
     sz <- cell.size * 0.5
-
     
     # Find center of all 1x1 grid cells in study region
     y.seq <- seq(lat.min, lat.max, cell.size)
@@ -154,17 +203,3 @@ define.gridcells <- function(
     return(use)
 
 }
-
-
-# ----------------------------
-# TESTING
-# ----------------------------
-if(FALSE) {
-
-    define.gridcells()
-    define.gridcells(all.cells = TRUE)
-
-}
-
-
-

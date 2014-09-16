@@ -1,8 +1,62 @@
+#' @title Par settings for lattice graphics
+#' 
+#' @description
+#'     Returns a list of par settings for lattice that can be passed
+#'     to the \code{par.settings} argument.    
+#' 
+#' @param \dots
+#'     A list of parameters to pass to \code{par.settings}. This
+#'     allows the user to change additional parameters not set by
+#'     \code{mm.par} or to change the settings in \code{mm.par}.
+#' 
+#' @details
+#'     A list of parameters supplied to the function should be in the
+#'     same format as for \code{par.settings}.
+#'     
+#' @return
+#'     Returns a list of visually pleasing par setting for lattice graphics.
+#' 
+#' @author Michael Malick
+#' 
+#' @export
+#' 
+#' @seealso
+#'     \code{\link{trellis.par.get}}
+#'     \code{\link{trellis.par.set}}
+#'     \code{\link{lattice.options}}
+#'     \code{\link{xyplot}}
+#' 
+#' @examples
+#'     \dontrun{
+#'         require(lattice)
+#' 
+#'         xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
+#'             par.settings = mm.par())
+#' 
+#'         xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
+#'             par.settings = mm.par(), grid = TRUE)
+#' 
+#'         xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
+#'             par.settings = mm.par(list(fontsize = list(text = 16),
+#'             par.main.text = list(col = "grey50"), 
+#'             plot.symbol = list(pch="l"))), 
+#'             main = "Iris")
+#' 
+#'         barchart(Species ~ Petal.Length, data = iris, 
+#'             par.settings = mm.par())
+#' 
+#'         barchart( ~ Petal.Length, data = iris, groups = Species,
+#'             par.settings = mm.par(), auto.key = TRUE,
+#'             panel = function(x, y, ...) {
+#'                 panel.grid(-1, -1)
+#'                 panel.barchart(x, y, ...)
+#'             })
+#' 
+#'         dotplot(Species ~ Petal.Length, data = iris,
+#'             par.settings = mm.par())
+#'     }
+#' 
 mm.par <- function(...) {
-
-    # PAR SETTINGS FOR LATTICE PLOTS
-    # Michael Malick
-    # 09 Mar 2013
     
     usr.par <- c(...)
 
@@ -39,42 +93,3 @@ mm.par <- function(...) {
 
     return(theme)
 }
-
-
-
-
-
-#####################################################################
-# TESTING
-#####################################################################
-if(FALSE) {
-
-xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
-    par.settings = mm.par())
-
-xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
-    par.settings = mm.par(), grid = TRUE)
-
-xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
-    par.settings = mm.par(list(fontsize = list(text = 16),
-    par.main.text = list(col = "grey50"), 
-    plot.symbol = list(pch="l"))), 
-    main = "Iris")
-
-barchart(Species ~ Petal.Length, data = iris, 
-    par.settings = mm.par())
-
-barchart( ~ Petal.Length, data = iris, groups = Species,
-    par.settings = mm.par(), auto.key = TRUE,
-    panel = function(x, y, ...) {
-        panel.grid(-1, -1)
-        panel.barchart(x, y, ...)
-    })
-
-dotplot(Species ~ Petal.Length, data = iris,
-    par.settings = mm.par())
-
-
-
-}
-

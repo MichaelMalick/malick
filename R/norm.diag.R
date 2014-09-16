@@ -1,25 +1,44 @@
+#' @title Explore the normality assumption of a vector
+#' 
+#' @description
+#'     Examine the distribution of data and check against normal distribution. 
+#' 
+#' @param x
+#'     vector of numeric data
+#' @param shapiro.test
+#'     logical, should a Shaprio-Wilks test be run
+#' @param na.rm
+#'     logical, should NA values be removed before plotting
+#' @param main.title
+#'     main title of plot
+#' 
+#' @return Returns a plotting device with four diagnostic plots:
+#'     \itemize{
+#'         \item{histogram: includes an empirical density estimate}
+#'         \item{boxplot}
+#'         \item{normal qq plot}
+#'         \item{empirical cdf: includes the corresponding normal
+#'             cumulative density function}}
+#' 
+#' @author Michael Malick
+#'         
+#' @export
+#' 
+#' @seealso
+#'     \code{\link{shapiro.test}}
+#'     \code{\link{plot.ecdf}}
+#'     \code{\link{boxplot}}
+#'     \code{\link{hist}}
+#'     \code{\link{density}}
+#' 
+#' @examples
+#'     x <- rnorm(100)
+#'     norm.diag(x)
+#' 
 norm.diag <- function(x, shapiro.test = FALSE, 
     na.rm = TRUE, main.title = "") {
 
-# Examine distribution of data and check against normal distribution
-# x is a vector of data. Additional graphics parameters can be
-# supplied. 
-#
-# The function creates four plots
-#   * histogram with an empirical density estimate
-#   * boxplot
-#   * normal q-q plot
-#   * empirical cumulative density function with the corresponding 
-#     normal cdf. 
-#
-# In addition, the function returns the results from the 
-# Shapiro-Wilks test of normality
-#
-# Written by Franz Mueter on February 24, 2006
-# Modified by Michael Malick on July 15, 2013
-
     par(mfrow=c(2,2), las = 1, mar = c(4,4,5,2), bty = "o")    
-
 
     if(na.rm) x <- x[!is.na(x)]
 
@@ -63,15 +82,3 @@ norm.diag <- function(x, shapiro.test = FALSE,
 
     if(shapiro.test) shapiro.test(x)
 }
-
-
-#####################################################################
-# TESTING
-#####################################################################
-if(FALSE) {
-
-    x <- rnorm(100)
-    norm.diag(x)
-
-}
-

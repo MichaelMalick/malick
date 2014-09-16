@@ -1,20 +1,56 @@
+#' @title Identify outliers in a series of residuals
+#' 
+#' @description
+#'     Identifies outliers in a series of residuals according their index number in
+#'     the vector.
+#' 
+#' @param x
+#'     vector of residuals
+#' @param type
+#'     One of \code{"outlier"}, \code{"max.abs"}, or \code{"max.min"}. 
+#' @param p
+#'     p-value
+#' @param plot.it
+#'     logical, should the results be plotted
+#' 
+#' @return Returns a list with two components:
+#'     \itemize{ 
+#'         \item{positive}{positive outliers}
+#'         \item{negative}{negative outliers}}
+#' 
+#'     There are three types:
+#'     \itemize{
+#'         \item{outlier}{
+#'             returns the positions of all residuals that are 
+#'             larger than (smaller than) the (1-p/2)th (p/2th) percentile 
+#'             of the distribution of the residuals assuming they follow a 
+#'             normal distribution.
+#'         }
+#' 
+#'         \item{max.abs}{
+#'             returns the position and sign of the maximum absolute
+#'             residual
+#'         }
+#' 
+#'         \item{max.min}{
+#'             returns the positions of the maximum and minimum residual 
+#'         }
+#'     }
+#' 
+#' @author Michael Malick
+#' 
+#' @export
+#' 
+#' @seealso \code{\link{qqnorm}}
+#' 
+#' @examples
+#'     set.seed(29)
+#'     x <- rnorm(25)
+#'     y <- rnorm(25)
+#'     fit <- lm(y ~ x)
+#'     outlier(resid(fit))
+#' 
 outlier <- function(x, type = "outlier", p = 0.05, plot.it = TRUE) {
-
-# Identify outliers in a series of residuals (x)
-#
-# type = "max.abs" returns the position and sign of the maximum 
-#        absolute residual
-#
-# type = "max.min" returns the positions of the maximum and 
-#        minimum residual
-#
-# type = "outlier" returns the positions of all residuals that are 
-#        larger than (smaller than) the (1-p/2)th (p/2th) percentile 
-#        of the distribution of the residuals assuming they follow a 
-#        normal distribution
-#
-# Written by Franz Mueter; Last modified February 24, 2006
-
 
     if(type == "max.abs") {
         pos <- seq(along = x)
@@ -57,19 +93,3 @@ outlier <- function(x, type = "outlier", p = 0.05, plot.it = TRUE) {
     }
     res
 }          
-
-
-
-#####################################################################
-# TESTING
-#####################################################################
-if(FALSE) {
-
-    set.seed(29)
-    x <- rnorm(25)
-    y <- rnorm(25)
-    fit <- lm(y ~ x)
-    outlier(resid(fit))
-
-}
-
