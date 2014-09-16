@@ -31,10 +31,10 @@ You can set a tolerance level, which is required if the values in
 }
 \examples{
 x <- c(1, 2, 3, NA, 4, 5)
-    stnd.norm(x)
+stnd.norm(x)
 
-    y <- rep(3.1, 10)
-    stnd.norm(y)
+y <- rep(3.1, 10)
+stnd.norm(y)
 }
 \author{
 Michael Malick

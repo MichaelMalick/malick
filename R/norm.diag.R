@@ -32,8 +32,8 @@
 #'     \code{\link{density}}
 #' 
 #' @examples
-#'     x <- rnorm(100)
-#'     norm.diag(x)
+#' x <- rnorm(100)
+#' norm.diag(x)
 #' 
 norm.diag <- function(x, shapiro.test = FALSE, 
     na.rm = TRUE, main.title = "") {

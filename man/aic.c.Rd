@@ -24,14 +24,14 @@ This function computes the AIC corrected for small samples sizes (AICc) and
 }
 \examples{
 ## Create some data
-    x <- rnorm(10)
-    y <- rnorm(10)
+x <- rnorm(10)
+y <- rnorm(10)
 
-    ## Fit linear model
-    fit <- lm(y ~ x)
+## Fit linear model
+fit <- lm(y ~ x)
 
-    ## Compute AICc
-    aic.c(fit)
+## Compute AICc
+aic.c(fit)
 }
 \author{
 Michael Malick

@@ -20,11 +20,11 @@ load.ncdf(datafile, var, lat.name = "lat", lon.name = "lon",
 \value{
 Returns a list:
     \itemize{
-        \item{datLat}{latitude vector}
-        \item{datLon}{longitude vector}
-        \item{datTime}{time vector}
-        \item{dim}{dimensions of dat}
-        \item{dat}{data arrays}}
+        \item{datLat: latitude vector}
+        \item{datLon: longitude vector}
+        \item{datTime: time vector}
+        \item{dim: dimensions of dat}
+        \item{dat: data arrays}}
 }
 \description{
 This function loads a netCDF file

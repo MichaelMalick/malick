@@ -39,14 +39,15 @@
 #'     \code{\link{panel.abline}}
 #' 
 #' @examples
-#'    require(lattice)
+#'require(lattice)
 #' 
-#'     xyplot(Sepal.Length ~ Species, data = iris,
-#'         panel = function(x, y, col, ...)		{
-#' 		panel.grid(h=4, v=0, col = "grey80", ...)
-#' 		panel.xyplot(x, y, col = "grey40", ...)
-#' 		panel.mean(x, y, type = "p", horizontal = F, col = 1, 
-#' 		pch = "-", cex = 10, ...) })
+#' xyplot(Sepal.Length ~ Species, data = iris,
+#'     panel = function(x, y, col, ...) {
+#' 	       panel.grid(h=4, v=0, col = "grey80", ...)
+#' 		   panel.xyplot(x, y, col = "grey40", ...)
+#' 		   panel.mean(x, y, type = "p", horizontal = F, col = 1, 
+#' 		       pch = "-", cex = 10, ...) 
+#'     })
 #' 
 panel.mean <- function (x, y, fun = mean, horizontal = TRUE, 
     lwd = reference.line$lwd, 

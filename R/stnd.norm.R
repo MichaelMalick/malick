@@ -33,11 +33,11 @@
 #'     \code{\link{sd}}
 #' 
 #' @examples
-#'     x <- c(1, 2, 3, NA, 4, 5)
-#'     stnd.norm(x)
+#' x <- c(1, 2, 3, NA, 4, 5)
+#' stnd.norm(x)
 #' 
-#'     y <- rep(3.1, 10)
-#'     stnd.norm(y)
+#' y <- rep(3.1, 10)
+#' stnd.norm(y)
 #' 
 stnd.norm <- function(x, na.rm = TRUE, tol = 0.001) {
 

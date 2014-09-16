@@ -24,7 +24,7 @@
 #' @export
 #' 
 #' @examples
-#'     haversine(48, -147, 49, -154)
+#' haversine(48, -147, 49, -154)
 #' 
 haversine <- function(lat1, lon1, lat2, lon2) {
 

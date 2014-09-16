@@ -28,10 +28,10 @@ Function to calculate confidence intervals (two-tailed) based on
 }
 \examples{
 x <- 1:10
-    conf.int(x)
+conf.int(x)
 
-    y <- c(1, 2, 3, NA, 4, 5:10)
-    conf.int(y, na.rm = TRUE)
+y <- c(1, 2, 3, NA, 4, 5:10)
+conf.int(y, na.rm = TRUE)
 }
 \author{
 Michael Malick

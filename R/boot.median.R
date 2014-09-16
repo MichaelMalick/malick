@@ -9,11 +9,11 @@
 #' 
 #' @return Returns a list:
 #'     \itemize{
-#'         \item{boot.mean}{mean of the bootstrap samples}
-#'         \item{boot.sd}{standard deviation of the bootstrap samples}
-#'         \item{bias}{the mean of the bootstrap samples minus the
+#'         \item{boot.mean: mean of the bootstrap samples}
+#'         \item{boot.sd: standard deviation of the bootstrap samples}
+#'         \item{bias: the mean of the bootstrap samples minus the
 #'             median of the original data}
-#'         \item{distribution}{vector of the bootstrap samples}}
+#'         \item{distribution: vector of the bootstrap samples}}
 #' 
 #' @author Michael Malick
 #'

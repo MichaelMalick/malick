@@ -22,10 +22,10 @@ Replica of the `jet colors' palette in matlab.
 }
 \examples{
 ## Create a matrix of data
-    mat <- matrix(data = seq(0.1, 100, .1), nrow = 100, ncol = 10)
+mat <- matrix(data = seq(0.1, 100, .1), nrow = 100, ncol = 10)
 
-    ## Plot data using colors.ocean()
-    image(mat, col = jet.colors(100))
+## Plot data using colors.ocean()
+image(mat, col = jet.colors(100))
 }
 \author{
 Michael Malick

@@ -44,11 +44,11 @@
 #' @seealso \code{\link{qqnorm}}
 #' 
 #' @examples
-#'     set.seed(29)
-#'     x <- rnorm(25)
-#'     y <- rnorm(25)
-#'     fit <- lm(y ~ x)
-#'     outlier(resid(fit))
+#' set.seed(29)
+#' x <- rnorm(25)
+#' y <- rnorm(25)
+#' fit <- lm(y ~ x)
+#' outlier(resid(fit))
 #' 
 outlier <- function(x, type = "outlier", p = 0.05, plot.it = TRUE) {
 

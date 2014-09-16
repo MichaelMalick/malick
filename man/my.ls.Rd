@@ -14,8 +14,8 @@ This function is a fancy version of ls() that includes the
 }
 \examples{
 x <- 10
-    y <- iris
-    my.ls()
+y <- iris
+my.ls()
 }
 \author{
 Michael Malick

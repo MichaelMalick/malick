@@ -17,8 +17,8 @@ cross.validate(fit, observed, data, k = 1)
 \value{
 Returns a list:
     \itemize{
-        \item{MSE}{mean squared prediction error}
-        \item{comp1 }{prediction standard deviation}}
+        \item{MSE: mean squared prediction error}
+        \item{comp1: prediction standard deviation}}
 }
 \description{
 Function to compute prediction standard errors for general linear
@@ -29,12 +29,12 @@ Modified code from cv.glm in boot package
 }
 \examples{
 set.seed(29)
-    x <- rnorm(25)
-    y <- rnorm(25)
-    dat <- data.frame(x = x, y = y)
+x <- rnorm(25)
+y <- rnorm(25)
+dat <- data.frame(x = x, y = y)
 
-    fit <- glm(y ~ x) # same result as lm()
-    cross.validate(fit = fit, observed = dat[1], data = dat)
+fit <- glm(y ~ x) # same result as lm()
+cross.validate(fit = fit, observed = dat[1], data = dat)
 }
 \author{
 Michael Malick

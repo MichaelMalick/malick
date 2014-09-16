@@ -23,33 +23,33 @@ A list of parameters supplied to the function should be in the
 }
 \examples{
 \dontrun{
-        require(lattice)
+require(lattice)
 
-        xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
-            par.settings = mm.par())
+xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
+    par.settings = mm.par())
 
-        xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
-            par.settings = mm.par(), grid = TRUE)
+xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
+    par.settings = mm.par(), grid = TRUE)
 
-        xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
-            par.settings = mm.par(list(fontsize = list(text = 16),
-            par.main.text = list(col = "grey50"),
-            plot.symbol = list(pch="l"))),
-            main = "Iris")
+xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
+    par.settings = mm.par(list(fontsize = list(text = 16),
+    par.main.text = list(col = "grey50"),
+    plot.symbol = list(pch="l"))),
+    main = "Iris")
 
-        barchart(Species ~ Petal.Length, data = iris,
-            par.settings = mm.par())
+barchart(Species ~ Petal.Length, data = iris,
+    par.settings = mm.par())
 
-        barchart( ~ Petal.Length, data = iris, groups = Species,
-            par.settings = mm.par(), auto.key = TRUE,
-            panel = function(x, y, ...) {
-                panel.grid(-1, -1)
-                panel.barchart(x, y, ...)
-            })
+barchart( ~ Petal.Length, data = iris, groups = Species,
+    par.settings = mm.par(), auto.key = TRUE,
+    panel = function(x, y, ...) {
+        panel.grid(-1, -1)
+        panel.barchart(x, y, ...)
+    })
 
-        dotplot(Species ~ Petal.Length, data = iris,
-            par.settings = mm.par())
-    }
+dotplot(Species ~ Petal.Length, data = iris,
+    par.settings = mm.par())
+}
 }
 \author{
 Michael Malick

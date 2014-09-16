@@ -29,20 +29,20 @@ This function currently only works on barplots
 }
 \examples{
 ## Bar Heights
-    x <- c(10,8,13,7)
+x <- c(10,8,13,7)
 
-    ## Error Bars
-    up <- c(1,1,1,1)
-    lo <- c(1,1,1,1)
+## Error Bars
+up <- c(1,1,1,1)
+lo <- c(1,1,1,1)
 
-    ## Barplot
-    plt <- barplot(x, ylim = c(0, 15), las = 1)
-    error.bar(plt, x, up, lo)
+## Barplot
+plt <- barplot(x, ylim = c(0, 15), las = 1)
+error.bar(plt, x, up, lo)
 }
 \author{
 Michael Malick
 }
 \seealso{
-\code{link{barplot}}
+\code{\link{barplot}}
 }
 

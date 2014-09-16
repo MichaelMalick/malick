@@ -56,10 +56,8 @@
 #' @export
 #' 
 #' @examples
-#'     define.gridcells(plot = FALSE)
+#' define.gridcells(plot = FALSE)
 #' 
-
-
 define.gridcells <- function(
     sub.cells = NULL,
     cell.size = 2,

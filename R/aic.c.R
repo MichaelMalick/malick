@@ -28,15 +28,15 @@
 #' @export
 #' 
 #' @examples
-#'     ## Create some data
-#'     x <- rnorm(10)
-#'     y <- rnorm(10)
+#' ## Create some data
+#' x <- rnorm(10)
+#' y <- rnorm(10)
 #'     
-#'     ## Fit linear model
-#'     fit <- lm(y ~ x)
+#' ## Fit linear model
+#' fit <- lm(y ~ x)
 #'     
-#'     ## Compute AICc
-#'     aic.c(fit)
+#' ## Compute AICc
+#' aic.c(fit)
 #' 
 aic.c <- function(model, k = 2)  {
     lnL   <- logLik(model)

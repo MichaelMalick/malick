@@ -21,13 +21,13 @@ Correlations are performed among the columns of the matrix or dataframe.
 }
 \examples{
 x <- rnorm(25)
-    mat <- matrix(data = x, nrow = 5, ncol = 5, dimnames = list(
-        c("A", "B","C", "D", "E"), c("M", "N","O", "P", "Q")))
+mat <- matrix(data = x, nrow = 5, ncol = 5, dimnames = list(
+    c("A", "B","C", "D", "E"), c("M", "N","O", "P", "Q")))
 
-    cor.prob(mat)
+cor.prob(mat)
 
-    # Iterative version of cor Function
-    cor(mat, use = "pairwise.complete.obs")
+# Iterative version of cor Function
+cor(mat, use = "pairwise.complete.obs")
 }
 \author{
 Michael Malick

@@ -39,12 +39,13 @@ Panel function for lattice plots to add a mean bar onto an xyplot
 \examples{
 require(lattice)
 
-    xyplot(Sepal.Length ~ Species, data = iris,
-        panel = function(x, y, col, ...)		{
-		panel.grid(h=4, v=0, col = "grey80", ...)
-		panel.xyplot(x, y, col = "grey40", ...)
-		panel.mean(x, y, type = "p", horizontal = F, col = 1,
-		pch = "-", cex = 10, ...) })
+xyplot(Sepal.Length ~ Species, data = iris,
+    panel = function(x, y, col, ...) {
+	       panel.grid(h=4, v=0, col = "grey80", ...)
+		   panel.xyplot(x, y, col = "grey40", ...)
+		   panel.mean(x, y, type = "p", horizontal = F, col = 1,
+		       pch = "-", cex = 10, ...)
+    })
 }
 \author{
 Michael Malick

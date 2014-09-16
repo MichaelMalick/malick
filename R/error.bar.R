@@ -26,19 +26,19 @@
 #' 
 #' @export
 #' 
-#' @seealso \code{link{barplot}}
+#' @seealso \code{\link{barplot}}
 #' 
 #' @examples
-#'     ## Bar Heights
-#'     x <- c(10,8,13,7)
+#' ## Bar Heights
+#' x <- c(10,8,13,7)
 #' 
-#'     ## Error Bars
-#'     up <- c(1,1,1,1)
-#'     lo <- c(1,1,1,1)
+#' ## Error Bars
+#' up <- c(1,1,1,1)
+#' lo <- c(1,1,1,1)
 #' 
-#'     ## Barplot
-#'     plt <- barplot(x, ylim = c(0, 15), las = 1)
-#'     error.bar(plt, x, up, lo)
+#' ## Barplot
+#' plt <- barplot(x, ylim = c(0, 15), las = 1)
+#' error.bar(plt, x, up, lo)
 #' 
 error.bar <- function (x, y, ebl, ebu = ebl, length = 0.08, ...) {
     arrows(x, y + ebu, x, y - ebl, angle = 90, code = 3, 

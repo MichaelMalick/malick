@@ -15,8 +15,8 @@
 #'     
 #' @return Returns a list:
 #'     \itemize{
-#'         \item{MSE}{mean squared prediction error}
-#'         \item{comp1 }{prediction standard deviation}}
+#'         \item{MSE: mean squared prediction error}
+#'         \item{comp1: prediction standard deviation}}
 #' 
 #' @author Michael Malick
 #' 
@@ -28,13 +28,13 @@
 #' @seealso \code{\link{glm}} \code{\link{predict}}
 #' 
 #' @examples
-#'     set.seed(29)
-#'     x <- rnorm(25)
-#'     y <- rnorm(25)
-#'     dat <- data.frame(x = x, y = y)
+#' set.seed(29)
+#' x <- rnorm(25)
+#' y <- rnorm(25)
+#' dat <- data.frame(x = x, y = y)
 #' 
-#'     fit <- glm(y ~ x) # same result as lm()
-#'     cross.validate(fit = fit, observed = dat[1], data = dat)
+#' fit <- glm(y ~ x) # same result as lm()
+#' cross.validate(fit = fit, observed = dat[1], data = dat)
 #' 
 cross.validate <- function(fit, observed, data, k = 1)  {
 

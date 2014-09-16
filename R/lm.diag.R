@@ -26,14 +26,14 @@
 #'     Returns a plotting device with eight standard diagnostic plots for linear
 #'     models:
 #'     \itemize{
-#'         \item{histogram of the residuals}{ } 
-#'         \item{normal qq plot of residuals}{ } 
-#'         \item{residuals vs fitted values}{ } 
-#'         \item{standardized residuals vs fitted values}{ } 
-#'         \item{studentized residuals vs fitted values}{ } 
-#'         \item{autocorrelation function}{ } 
-#'         \item{cooks distance vs fitted}{ }
-#'         \item{leverages vs fitted}{ }}
+#'         \item{histogram of the residuals}
+#'         \item{normal qq plot of residuals}
+#'         \item{residuals vs fitted values}
+#'         \item{standardized residuals vs fitted values}
+#'         \item{studentized residuals vs fitted values}
+#'         \item{autocorrelation function}
+#'         \item{cooks distance vs fitted}
+#'         \item{leverages vs fitted}}
 #' 
 #' @references
 #'     Kutner, M. H., C. J. Nachtsheim, J. Neter, and W. Li. 2005.
@@ -53,15 +53,15 @@
 #'     \code{\link{influence}}
 #' 
 #' @examples
-#'     ## Create some data
-#'     x <- rnorm(100)
-#'     y <- 1:100
+#' ## Create some data
+#' x <- rnorm(100)
+#' y <- 1:100
 #'      
-#'     ## Fit linear model
-#'     fitted <- lm(x ~ y)
+#' ## Fit linear model
+#' fitted <- lm(x ~ y)
 #' 
-#'     ## Run diagnostics
-#'     lm.diag(fitted)
+#' ## Run diagnostics
+#' lm.diag(fitted)
 #' 
 lm.diag <- function(x, main.title = "Residual Diagnostic Plots") {
     require(MASS)

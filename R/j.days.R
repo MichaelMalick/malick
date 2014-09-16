@@ -24,7 +24,7 @@
 #' @author Michael Malick
 #' 
 #' @examples
-#'     j.days(1999)
+#' j.days(1999)
 #' 
 j.days <- function(year) {
 

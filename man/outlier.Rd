@@ -45,10 +45,10 @@ Identifies outliers in a series of residuals according their index number in
 }
 \examples{
 set.seed(29)
-    x <- rnorm(25)
-    y <- rnorm(25)
-    fit <- lm(y ~ x)
-    outlier(resid(fit))
+x <- rnorm(25)
+y <- rnorm(25)
+fit <- lm(y ~ x)
+outlier(resid(fit))
 }
 \author{
 Michael Malick

@@ -27,34 +27,34 @@
 #'     \code{\link{xyplot}}
 #' 
 #' @examples
-#'     \dontrun{
-#'         require(lattice)
+#' \dontrun{
+#' require(lattice)
 #' 
-#'         xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
-#'             par.settings = mm.par())
+#' xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
+#'     par.settings = mm.par())
 #' 
-#'         xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
-#'             par.settings = mm.par(), grid = TRUE)
+#' xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
+#'     par.settings = mm.par(), grid = TRUE)
 #' 
-#'         xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
-#'             par.settings = mm.par(list(fontsize = list(text = 16),
-#'             par.main.text = list(col = "grey50"), 
-#'             plot.symbol = list(pch="l"))), 
-#'             main = "Iris")
+#' xyplot(Petal.Width ~ Petal.Length | Species, data = iris,
+#'     par.settings = mm.par(list(fontsize = list(text = 16),
+#'     par.main.text = list(col = "grey50"), 
+#'     plot.symbol = list(pch="l"))), 
+#'     main = "Iris")
 #' 
-#'         barchart(Species ~ Petal.Length, data = iris, 
-#'             par.settings = mm.par())
+#' barchart(Species ~ Petal.Length, data = iris, 
+#'     par.settings = mm.par())
 #' 
-#'         barchart( ~ Petal.Length, data = iris, groups = Species,
-#'             par.settings = mm.par(), auto.key = TRUE,
-#'             panel = function(x, y, ...) {
-#'                 panel.grid(-1, -1)
-#'                 panel.barchart(x, y, ...)
-#'             })
+#' barchart( ~ Petal.Length, data = iris, groups = Species,
+#'     par.settings = mm.par(), auto.key = TRUE,
+#'     panel = function(x, y, ...) {
+#'         panel.grid(-1, -1)
+#'         panel.barchart(x, y, ...)
+#'     })
 #' 
-#'         dotplot(Species ~ Petal.Length, data = iris,
-#'             par.settings = mm.par())
-#'     }
+#' dotplot(Species ~ Petal.Length, data = iris,
+#'     par.settings = mm.par())
+#' }
 #' 
 mm.par <- function(...) {
     

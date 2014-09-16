@@ -28,7 +28,7 @@ Examine the distribution of data and check against normal distribution.
 }
 \examples{
 x <- rnorm(100)
-    norm.diag(x)
+norm.diag(x)
 }
 \author{
 Michael Malick

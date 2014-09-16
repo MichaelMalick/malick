@@ -20,14 +20,14 @@
 #' @seealso \code{\link{cor}}
 #' 
 #' @examples
-#'     x <- rnorm(25)
-#'     mat <- matrix(data = x, nrow = 5, ncol = 5, dimnames = list(
-#'         c("A", "B","C", "D", "E"), c("M", "N","O", "P", "Q"))) 
+#' x <- rnorm(25)
+#' mat <- matrix(data = x, nrow = 5, ncol = 5, dimnames = list(
+#'     c("A", "B","C", "D", "E"), c("M", "N","O", "P", "Q"))) 
 #' 
-#'     cor.prob(mat)
+#' cor.prob(mat)
 #' 
-#'     # Iterative version of cor Function 
-#'     cor(mat, use = "pairwise.complete.obs")
+#' # Iterative version of cor Function 
+#' cor(mat, use = "pairwise.complete.obs")
 #' 
 cor.prob <- function(x){
     pn            <- function(x){crossprod(!is.na(x))}

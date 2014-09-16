@@ -14,9 +14,9 @@
 #' @seealso \code{\link{ls}}
 #' 
 #' @examples
-#'     x <- 10
-#'     y <- iris
-#'     my.ls()
+#' x <- 10
+#' y <- iris
+#' my.ls()
 #'
 my.ls <- function(pos = 1){
 

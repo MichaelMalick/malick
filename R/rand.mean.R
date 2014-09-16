@@ -35,9 +35,9 @@
 #'     \code{\link{sample}}
 #' 
 #' @examples
-#'     x <- 1:100
-#'     y <- 11:110
-#'     rand.mean(x, y)
+#' x <- 1:100
+#' y <- 11:110
+#' rand.mean(x, y)
 #' 
 rand.mean <- function(x, y, R = 1000, one.sided = FALSE) {
 

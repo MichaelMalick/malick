@@ -33,8 +33,8 @@ Function to test the difference between means of two samples
 }
 \examples{
 x <- 1:100
-    y <- 11:110
-    rand.mean(x, y)
+y <- 11:110
+rand.mean(x, y)
 }
 \author{
 Michael Malick

@@ -27,11 +27,11 @@
 #' @export
 #' 
 #' @examples
-#'     x <- 1:10
-#'     conf.int(x)
+#' x <- 1:10
+#' conf.int(x)
 #' 
-#'     y <- c(1, 2, 3, NA, 4, 5:10)
-#'     conf.int(y, na.rm = TRUE)
+#' y <- c(1, 2, 3, NA, 4, 5:10)
+#' conf.int(y, na.rm = TRUE)
 #' 
 conf.int <- function(x, alpha = 0.975, na.rm = FALSE) {
     avg  <- mean(x, na.rm = na.rm)

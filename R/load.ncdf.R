@@ -16,18 +16,18 @@
 #' 
 #' @return Returns a list:
 #'     \itemize{
-#'         \item{datLat}{latitude vector}
-#'         \item{datLon}{longitude vector}
-#'         \item{datTime}{time vector}
-#'         \item{dim}{dimensions of dat}
-#'         \item{dat}{data arrays}}
+#'         \item{datLat: latitude vector}
+#'         \item{datLon: longitude vector}
+#'         \item{datTime: time vector}
+#'         \item{dim: dimensions of dat}
+#'         \item{dat: data arrays}}
 #' 
 #' @author Michael Malick
 #' 
 #' @export
 #' 
 #' @examples
-#'     \dontrun{load.ncdf("./data/sst.nc", var = "sst")}
+#' \dontrun{load.ncdf("./data/sst.nc", var = "sst")}
 #' 
 load.ncdf <- function(datafile, var, lat.name = "lat", lon.name = "lon",
     time.name = "time") {
