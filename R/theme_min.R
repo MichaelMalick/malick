@@ -1,7 +1,7 @@
-#' @title ggplot2 White Theme
+#' @title ggplot2 Minimal Theme
 #' 
 #' @description 
-#'     A ggolot2 theme that is all white with grey grid lines
+#'     A ggolot2 theme that is simple and clean (white with grey grid lines)
 #' 
 #' @param base_size
 #'     base text size
@@ -24,20 +24,20 @@
 #' 
 #' ggplot(mpg, aes(cty, hwy)) + 
 #'     geom_point(colour = "red") +
-#'     theme_white()
+#'     theme_min()
 #' 
 #' ggplot(mpg, aes(cty, hwy)) + 
 #'     geom_point() + 
 #'     facet_wrap(~class) +
-#'     theme_white()
+#'     theme_min()
 #' 
 #' ggplot(mpg, aes(cty, hwy)) + 
 #'     geom_point() + 
 #'     facet_grid(year~class) +
-#'     theme_white()'
+#'     theme_min()'
 #' }
 #'
-theme_white <- function (base_size = 12, base_family = "", 
+theme_min <- function (base_size = 12, base_family = "", 
     axis_text_size = 8) {
     require(grid)
     theme_gray(base_size = base_size, base_family = base_family) %+replace%
