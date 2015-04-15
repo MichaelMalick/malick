@@ -11,6 +11,7 @@ package is not on CRAN, but can be installed from R using:
     install.packages("devtools")
     library(devtools)
     install_github("r-malick", username = "michaelmalick")
+    library(malick)
 
 
 
