@@ -1,5 +1,5 @@
 # malick
-An R package containing random but personally useful functions.
+*An R package containing random but personally useful functions.*
 
 
 
