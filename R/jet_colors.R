@@ -29,10 +29,10 @@
 #' ## Create a matrix of data
 #' mat <- matrix(data = seq(0.1, 100, .1), nrow = 100, ncol = 10)
 #' 
-#' ## Plot data using colors.ocean()
-#' image(mat, col = jet.colors(100))
+#' ## Plot data using jet_colors()
+#' image(mat, col = jet_colors(100))
 #' 
-jet.colors <- colorRampPalette(c(
+jet_colors <- colorRampPalette(c(
     "#00007F", 
     "blue", 
     "#007FFF", 

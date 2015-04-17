@@ -34,12 +34,12 @@
 #' 
 #' @examples
 #' x <- c(1, 2, 3, NA, 4, 5)
-#' stnd.norm(x)
+#' stnd_norm(x)
 #' 
 #' y <- rep(3.1, 10)
-#' stnd.norm(y)
+#' stnd_norm(y)
 #' 
-stnd.norm <- function(x, na.rm = TRUE, tol = 0.001) {
+stnd_norm <- function(x, na.rm = TRUE, tol = 0.001) {
 
    
     avg <- mean(x, na.rm = na.rm)

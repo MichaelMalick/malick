@@ -38,9 +38,9 @@
 #' 
 #' ## Barplot
 #' plt <- barplot(x, ylim = c(0, 15), las = 1)
-#' error.bar(plt, x, up, lo)
+#' error_bar(plt, x, up, lo)
 #' 
-error.bar <- function (x, y, ebl, ebu = ebl, length = 0.08, ...) {
+error_bar <- function (x, y, ebl, ebu = ebl, length = 0.08, ...) {
     arrows(x, y + ebu, x, y - ebl, angle = 90, code = 3, 
     length = length, ...)
 }

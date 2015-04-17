@@ -27,21 +27,19 @@
 #' @export
 #' 
 #' @examples
-#' \dontrun{load.ncdf("./data/sst.nc", var = "sst")}
+#' \dontrun{load_ncdf("./data/sst.nc", var = "sst")}
 #' 
-load.ncdf <- function(datafile, var, lat.name = "lat", lon.name = "lon",
+load_ncdf <- function(datafile, var, lat.name = "lat", lon.name = "lon",
     time.name = "time") {
     
-    require(ncdf)
-
-    dat.file <- open.ncdf(datafile)
-    datLat   <- get.var.ncdf(dat.file, varid = lat.name)  
-    datLon   <- get.var.ncdf(dat.file, varid = lon.name)  
-    datTime  <- get.var.ncdf(dat.file, varid = time.name) 
-    dat      <- get.var.ncdf(dat.file, varid = var)    
+    dat.file <- ncdf::open.ncdf(datafile)
+    datLat   <- ncdf::get.var.ncdf(dat.file, varid = lat.name)  
+    datLon   <- ncdf::get.var.ncdf(dat.file, varid = lon.name)  
+    datTime  <- ncdf::get.var.ncdf(dat.file, varid = time.name) 
+    dat      <- ncdf::get.var.ncdf(dat.file, varid = var)    
     dim      <- dim(dat)    
     
-    invisible(close.ncdf(dat.file)) 
+    invisible(ncdf::close.ncdf(dat.file)) 
     
     return(list(datLat = datLat, datLon = datLon, datTime = datTime,
         dim = dim, dat = dat))

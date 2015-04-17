@@ -36,9 +36,9 @@
 #' fit <- lm(y ~ x)
 #'     
 #' ## Compute AICc
-#' aic.c(fit)
+#' aic_c(fit)
 #' 
-aic.c <- function(model, k = 2)  {
+aic_c <- function(model, k = 2)  {
     lnL   <- logLik(model)
     P     <- attr(lnL, "df")
     N     <- length(residuals(model))

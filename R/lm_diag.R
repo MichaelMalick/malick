@@ -49,7 +49,7 @@
 #'     \code{\link{cooks.distance}}
 #'     \code{\link{stdres}}
 #'     \code{\link{studres}}
-#'     \code{\link{norm.diag}}
+#'     \code{\link{norm_diag}}
 #'     \code{\link{influence}}
 #' 
 #' @examples
@@ -61,15 +61,14 @@
 #' fitted <- lm(x ~ y)
 #' 
 #' ## Run diagnostics
-#' lm.diag(fitted)
+#' lm_diag(fitted)
 #' 
-lm.diag <- function(x, main.title = "Residual Diagnostic Plots") {
-    require(MASS)
+lm_diag <- function(x, main.title = "Residual Diagnostic Plots") {
     
     fit       <- x$fitted.values
     resd      <- x$residuals
-    std.resd  <- stdres(x) # studentized residuals in Kutner
-    stud.resd <- studres(x)
+    std.resd  <- MASS::stdres(x) # studentized residuals in Kutner
+    stud.resd <- MASS::studres(x)
     n         <- length(x$residuals)
     p         <- length(x$coef)
     x.inf     <- influence(x)

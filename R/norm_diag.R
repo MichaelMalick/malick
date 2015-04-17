@@ -33,9 +33,9 @@
 #' 
 #' @examples
 #' x <- rnorm(100)
-#' norm.diag(x)
+#' norm_diag(x)
 #' 
-norm.diag <- function(x, shapiro.test = FALSE, 
+norm_diag <- function(x, shapiro.test = FALSE, 
     na.rm = TRUE, main.title = "") {
 
     par(mfrow=c(2,2), las = 1, mar = c(4,4,5,2), bty = "o")    

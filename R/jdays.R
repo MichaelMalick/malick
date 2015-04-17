@@ -24,9 +24,9 @@
 #' @author Michael Malick
 #' 
 #' @examples
-#' j.days(1999)
+#' jdays(1999)
 #' 
-j.days <- function(year) {
+jdays <- function(year) {
 
     years  <- numeric()
     jdays  <- numeric()
