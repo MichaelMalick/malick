@@ -16,5 +16,4 @@ package is not on CRAN, but can be installed from R using:
 
 
 # License
-This package is [MIT/X11](http://opensource.org/licenses/MIT) licensed.
-Copyright (c) 2014-2015 Michael Malick
+MIT
