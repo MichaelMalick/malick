@@ -1,33 +1,32 @@
 #' @title Minimalist lattice theme
 #'
 #' @description
-#'     A minimalist theme for lattice graphics
+#'  A minimalist theme for lattice graphics
 #'
 #' @param fontsize
-#'     font size for labels
-#'
+#'  font size for labels
 #' @param ...
-#'     passed to \code{par.settings}
+#'  passed to \code{par.settings}
 #'
 #' @details
-#'     see \code{latticeExtra::custom.theme} for other examples
+#'  see \code{latticeExtra::custom.theme} for other examples
 #'
 #' @export
 #'
 #' @seealso
-#'      \code{\link{trellis.par.get}}
+#'  \code{\link{trellis.par.get}}
 #'
 #' @author Michael Malick
 #'
 #' @examples
-#'   lattice::xyplot(Sepal.Length ~ Sepal.Width, data = iris, groups = Species,
-#'                   type = c("p", "smooth"),
-#'                   par.settings = par_mjm())
+#'  lattice::xyplot(Sepal.Length ~ Sepal.Width, data = iris, groups = Species,
+#'                  type = c("p", "smooth"),
+#'                  par.settings = par_mjm())
 #'
-#'   lattice::xyplot(Sepal.Length ~ Sepal.Width, data = iris, groups = Species,
-#'                   type = c("p", "smooth"),
-#'                   par.settings = par_mjm(pch = 5:7),
-#'                   auto.key = TRUE)
+#'  lattice::xyplot(Sepal.Length ~ Sepal.Width, data = iris, groups = Species,
+#'                  type = c("p", "smooth"),
+#'                  par.settings = par_mjm(pch = 5:7),
+#'                  auto.key = TRUE)
 #'
 par_mjm <- function(fontsize = 11, ...) {
 

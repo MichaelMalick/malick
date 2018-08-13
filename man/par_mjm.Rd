@@ -18,14 +18,14 @@ A minimalist theme for lattice graphics
 see \code{latticeExtra::custom.theme} for other examples
 }
 \examples{
-  lattice::xyplot(Sepal.Length ~ Sepal.Width, data = iris, groups = Species,
-                  type = c("p", "smooth"),
-                  par.settings = par_mjm())
+ lattice::xyplot(Sepal.Length ~ Sepal.Width, data = iris, groups = Species,
+                 type = c("p", "smooth"),
+                 par.settings = par_mjm())
 
-  lattice::xyplot(Sepal.Length ~ Sepal.Width, data = iris, groups = Species,
-                  type = c("p", "smooth"),
-                  par.settings = par_mjm(pch = 5:7),
-                  auto.key = TRUE)
+ lattice::xyplot(Sepal.Length ~ Sepal.Width, data = iris, groups = Species,
+                 type = c("p", "smooth"),
+                 par.settings = par_mjm(pch = 5:7),
+                 auto.key = TRUE)
 
 }
 \seealso{

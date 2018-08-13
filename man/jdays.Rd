@@ -10,23 +10,21 @@ jdays(years)
 \item{years}{vector of years for which to compute values}
 }
 \value{
-Returns a dataframe that contains a record for each day of the
-    year, 365 for non-leap years and 366 for leap years. If a vector of years
-    is supplied, a "stacked" data frame of time intervals is returned.
+Returns a data frame that contains a record for each day of the year, 365
+ for non-leap years and 366 for leap years. If a vector of years is supplied,
+ a "stacked" data frame of time intervals is returned.
 
-    For the weeks columns, the last week of the year contains an
-    extra day (2 days in leap years). For the day8 column the last
-    period only has 5 days.
+ For the weeks columns, the last week of the year contains an extra day (2
+ days in leap years). For the day8 column the last period only has 5 days.
 }
 \description{
-Computes daily values of year, month, day of the month, week of
-    the year, and Julian days for the input years. This function
-    accounts for leap years. February will have 29 days in leap
-    years.
+Computes daily values of year, month, day of the month, week of the year,
+ and Julian days for the input years. This function accounts for leap years.
+ February will have 29 days in leap years.
 }
 \examples{
-jdays(1999)
-jdays(1999:2001)
+ jdays(1999)
+ jdays(1999:2001)
 
 }
 \author{
