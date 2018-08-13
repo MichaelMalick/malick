@@ -1,7 +1,7 @@
 Package: malick
 Type: Package
 Title: Personal R Functions
-Version: 2.1.1
+Version: 2.2.0
 Date: 2018-08-13
 Author: Michael Malick
 Maintainer: Michael Malick <malickmj@gmail.com>
