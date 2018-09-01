@@ -4,7 +4,7 @@
 \alias{haversine}
 \title{Compute great circle distance between two points}
 \usage{
-haversine(lon1, lat1, lon2, lat2)
+haversine(lon1, lat1, lon2, lat2, r = 6378137)
 }
 \arguments{
 \item{lon1}{longitude of first point}
@@ -14,14 +14,18 @@ haversine(lon1, lat1, lon2, lat2)
 \item{lon2}{longitude of second point}
 
 \item{lat2}{latitude of second point}
+
+\item{r}{radius of earth (default is in meters)}
 }
 \value{
-Outputs a scalar giving the great circle distance in kilometers.
+Outputs a scalar giving the great circle distance in the same units as the
+ input radius.
 }
 \description{
 Computes the great circle distance between two points given their latitude
  and longitude (in decimal degrees) using the haversine formula. The output
- is the distance between the two points in kilometers
+ is the distance between the two points in the same units as the input `r`
+ (default is meters)
 }
 \examples{
  haversine(-147, 48, -154, 49)
