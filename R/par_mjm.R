@@ -19,6 +19,8 @@
 #' @author Michael Malick
 #'
 #' @examples
+#' lattice::show.settings(par_mjm())
+#'
 #'  lattice::xyplot(Sepal.Length ~ Sepal.Width, data = iris, groups = Species,
 #'                  type = c("p", "smooth"),
 #'                  par.settings = par_mjm())
@@ -28,40 +30,52 @@
 #'                  par.settings = par_mjm(pch = 5:7),
 #'                  auto.key = TRUE)
 #'
+#'  lattice::bwplot(Species ~ Sepal.Width, data = iris,
+#'                  par.settings = par_mjm())
+#'
+#'  lattice::levelplot(volcano, par.settings = par_mjm())
+#'  lattice::xyplot(rnorm(100) ~ rnorm(100), par.settings = par_mjm())
+#'
 par_mjm <- function(fontsize = 11, ...) {
 
-    col.symbol <- "#00A0EDFF"
+    ## RColorBrewer::brewer.pal(8, "Dark2")[1]
+    col.symbol <- "#1B9E77"
 
-    col.superpose     <- c("#00A0EDFF", "#DE732DFF", "#00AB06FF", "#BE6CF5FF",
-                           "#A09500FF", "#F352B1FF", "#00B3A3FF")
-    col.superpose.pol <- c("#00B9FFFF", "#FA8F59FF", "#0DC649FF", "#D58CFFFF",
-                           "#BBAF00FF", "#FF75CAFF", "#00CCBDFF")
+    ## RColorBrewer::brewer.pal(8, "Dark2")
+    col.superpose <- c("#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E",
+                       "#E6AB02", "#A6761D", "#666666")
 
-    col.regions <- c("#004B9FFF", "#004AA2FF", "#0049A4FF", "#0047A6FF",
-                     "#0046A8FF", "#0045A9FF", "#0043ABFF", "#0042ADFF",
-                     "#0041AEFF", "#003FB0FF", "#003EB1FF", "#003CB2FF",
-                     "#003AB4FF", "#0039B5FF", "#0B37B6FF", "#2936B7FF",
-                     "#3934B7FF", "#4633B8FF", "#5031B9FF", "#592FBAFF",
-                     "#622EBAFF", "#692DBBFF", "#702BBBFF", "#772ABBFF",
-                     "#7D29BCFF", "#8328BCFF", "#8827BCFF", "#8D26BCFF",
-                     "#9325BCFF", "#9725BCFF", "#9C25BCFF", "#A125BBFF",
-                     "#A525BBFF", "#A925BBFF", "#AD26BAFF", "#B127BAFF",
-                     "#B528B9FF", "#B929B9FF", "#BC2BB8FF", "#C02DB7FF",
-                     "#C32EB6FF", "#C730B5FF", "#CA32B4FF", "#CD35B3FF",
-                     "#D037B2FF", "#D339B1FF", "#D63CB0FF", "#D93EAFFF",
-                     "#DB41ADFF", "#DE44ACFF", "#E146ABFF", "#E349A9FF",
-                     "#E54CA8FF", "#E84FA6FF", "#EA52A4FF", "#EC54A3FF",
-                     "#EE57A1FF", "#F05A9FFF", "#F25D9DFF", "#F4609BFF",
-                     "#F66399FF", "#F86697FF", "#FA6994FF", "#FB6D92FF",
-                     "#FD7090FF", "#FE738DFF", "#FF768BFF", "#FF7988FF",
-                     "#FF7C86FF", "#FF7F83FF", "#FF8280FF", "#FF867EFF",
-                     "#FF897BFF", "#FF8C78FF", "#FF8F75FF", "#FF9271FF",
-                     "#FF966EFF", "#FF996BFF", "#FF9C68FF", "#FF9F64FF",
-                     "#FFA261FF", "#FFA65DFF", "#FFA959FF", "#FFAC56FF",
-                     "#FFAF52FF", "#FFB34EFF", "#FFB64AFF", "#FFB946FF",
-                     "#FFBC42FF", "#FFC03EFF", "#FFC339FF", "#FFC635FF",
-                     "#FFC931FF", "#FFCD2DFF", "#FFD029FF", "#FFD325FF",
-                     "#FFD722FF", "#FFDA1FFF", "#FFDD1CFF", "#FFE01BFF")
+    ## RColorBrewer::brewer.pal(8, "Pastel2")
+    col.superpose.pol <- c("#B3E2CD", "#FDCDAC", "#CBD5E8", "#F4CAE4",
+                           "#E6F5C9", "#FFF2AE", "#F1E2CC", "#CCCCCC")
+
+    ## viridis::plasma(100)
+    col.regions <- c("#0D0887FF", "#150789FF", "#1B068DFF", "#220690FF",
+                     "#270591FF", "#2C0594FF", "#300597FF", "#350498FF",
+                     "#39049AFF", "#3E049CFF", "#43039EFF", "#47039FFF",
+                     "#4B03A1FF", "#4F02A2FF", "#5302A3FF", "#5701A4FF",
+                     "#5B01A5FF", "#6001A6FF", "#6300A7FF", "#6700A8FF",
+                     "#6B00A8FF", "#6F00A8FF", "#7301A8FF", "#7701A8FF",
+                     "#7B02A8FF", "#7F03A8FF", "#8305A7FF", "#8707A6FF",
+                     "#8A09A5FF", "#8E0CA4FF", "#910EA3FF", "#9511A1FF",
+                     "#99149FFF", "#9C179EFF", "#9F1A9DFF", "#A21D9AFF",
+                     "#A62098FF", "#A92296FF", "#AC2694FF", "#AF2892FF",
+                     "#B22B8FFF", "#B52F8CFF", "#B7318AFF", "#BB3488FF",
+                     "#BD3786FF", "#C03A83FF", "#C23D81FF", "#C5407EFF",
+                     "#C8437BFF", "#CA457AFF", "#CC4977FF", "#CE4B75FF",
+                     "#D14E72FF", "#D35271FF", "#D5546EFF", "#D8576BFF",
+                     "#DA5A6AFF", "#DC5D67FF", "#DE6065FF", "#E06363FF",
+                     "#E26560FF", "#E4695EFF", "#E66C5CFF", "#E76F5AFF",
+                     "#E97257FF", "#EB7556FF", "#ED7953FF", "#EF7B51FF",
+                     "#F07F4FFF", "#F1824CFF", "#F3864BFF", "#F48948FF",
+                     "#F58C46FF", "#F79044FF", "#F89441FF", "#F9973FFF",
+                     "#FA9B3DFF", "#FA9E3BFF", "#FBA238FF", "#FCA536FF",
+                     "#FCA934FF", "#FDAD32FF", "#FDB130FF", "#FDB52EFF",
+                     "#FEB92CFF", "#FEBD2AFF", "#FDC129FF", "#FDC527FF",
+                     "#FDC926FF", "#FCCD25FF", "#FCD225FF", "#FBD624FF",
+                     "#FADA24FF", "#F8DE25FF", "#F7E225FF", "#F6E726FF",
+                     "#F5EC27FF", "#F3F027FF", "#F1F426FF", "#F0F921FF")
+
     lwd <- 0.8
 
     theme <- list(
