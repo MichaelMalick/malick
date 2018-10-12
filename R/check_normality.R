@@ -11,6 +11,8 @@
 #'  graphic is printed individually.
 #' @param na.rm
 #'  logical, should NA values be removed
+#' @param title
+#'  string, optional plot title placed on top outside margin
 #' @param shapiro.test
 #'  logical, should a Shapiro-Wilks test be run
 #'
@@ -37,10 +39,11 @@
 #' @examples
 #'  check_normality(rnorm(100))
 #'  check_normality(rnorm(100), panel = FALSE)
-#'  check_normality(rlnorm(100))
+#'  check_normality(rlnorm(100), title = "Title")
 #'
 check_normality <- function(x, panel = TRUE,
                             na.rm = FALSE,
+                            title = NULL,
                             shapiro.test = FALSE) {
 
     if(!is.numeric(x)) stop("x is not numeric")
@@ -110,6 +113,9 @@ check_normality <- function(x, panel = TRUE,
     graphics::axis(side = 2, lwd = 0, lwd.tick = 1, las = 1, col = "grey50")
     graphics::box(col = "grey50")
     graphics::mtext("Empirical and Normal CDF", font = 2, line = 1)
+
+    if(!is.null(title))
+        graphics::title(title, outer = TRUE, line = -2)
 
     if(panel) graphics::par(.par)
 

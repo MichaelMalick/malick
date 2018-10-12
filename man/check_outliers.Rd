@@ -4,7 +4,8 @@
 \alias{check_outliers}
 \title{Find potential outliers in a numeric vector}
 \usage{
-check_outliers(x, method = "iqr", range = 3, na.rm = FALSE, plot = TRUE)
+check_outliers(x, method = "iqr", range = 3, na.rm = FALSE,
+  title = NULL, plot = TRUE)
 }
 \arguments{
 \item{x}{numeric vector}
@@ -14,6 +15,8 @@ check_outliers(x, method = "iqr", range = 3, na.rm = FALSE, plot = TRUE)
 \item{range}{multiplier of IQR for outlier threshold}
 
 \item{na.rm}{logical, should NA values be removed}
+
+\item{title}{string, optional plot title placed on top outside margin}
 
 \item{plot}{logical, should a plot of results be produced}
 }

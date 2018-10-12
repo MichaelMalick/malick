@@ -4,7 +4,8 @@
 \alias{check_normality}
 \title{Check the normality assumption of a vector}
 \usage{
-check_normality(x, panel = TRUE, na.rm = FALSE, shapiro.test = FALSE)
+check_normality(x, panel = TRUE, na.rm = FALSE, title = NULL,
+  shapiro.test = FALSE)
 }
 \arguments{
 \item{x}{numeric vector}
@@ -13,6 +14,8 @@ check_normality(x, panel = TRUE, na.rm = FALSE, shapiro.test = FALSE)
 graphic is printed individually.}
 
 \item{na.rm}{logical, should NA values be removed}
+
+\item{title}{string, optional plot title placed on top outside margin}
 
 \item{shapiro.test}{logical, should a Shapiro-Wilks test be run}
 }
@@ -33,7 +36,7 @@ Check the normality assumption of univariate data or model residuals using
 \examples{
  check_normality(rnorm(100))
  check_normality(rnorm(100), panel = FALSE)
- check_normality(rlnorm(100))
+ check_normality(rlnorm(100), title = "Title")
 
 }
 \seealso{

@@ -12,6 +12,8 @@
 #'  multiplier of IQR for outlier threshold
 #' @param na.rm
 #'  logical, should NA values be removed
+#' @param title
+#'  string, optional plot title placed on top outside margin
 #' @param plot
 #'  logical, should a plot of results be produced
 #'
@@ -54,6 +56,7 @@
 check_outliers <- function(x, method = "iqr",
                            range = 3,
                            na.rm = FALSE,
+                           title = NULL,
                            plot = TRUE) {
 
     if(!is.numeric(x)) stop("x is not numeric")
@@ -73,7 +76,11 @@ check_outliers <- function(x, method = "iqr",
                     threshold = c(lower = as.vector(l.thresh),
                                   upper = as.vector(u.thresh)),
                     n.outlier = sum(ind))
-        main <- paste0("Outlier: ", range, " * IQR")
+        if(is.null(title)) {
+            main <- paste0("Outlier: ", range, " * IQR")
+        } else {
+            main <- title
+        }
     }
 
     if(plot) {
